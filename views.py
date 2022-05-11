@@ -27,10 +27,10 @@ def upload_post(request):
         image_arr = np.array(resized_image)
         predictions = fruveg_model.predict(image_arr.reshape(1,224,224,3))
         print(predictions)
-        # 예측값이 가장 높은 동물종의 인덱스를 찾아옴
+        # 예측값이 가장 높은 과일,야채의 인덱스를 찾아옴
         idx = predictions[0].argmax()
 
-        # 인덱스 번호를 동물종 이름으로 바꿈.
+        # 인덱스 번호를 과일,야채 이름으로 바꿈.
         lables = ['beetroot', 'watermelon', 'ginger', 'kiwi', 'lemon', 'soy beans',
                   'carrot', 'jalepeno', 'pear', 'cabbage', 'raddish', 'corn', 'mango',
                   'peas', 'cauliflower', 'pomegranate', 'eggplant', 'orange', 'spinach',
