@@ -16,3 +16,4 @@
 - Scikit learn
 
 ## 아키텍쳐
+![ar](https://user-images.githubusercontent.com/102707438/170937122-cf18c49a-1d09-428b-a607-cf3d3edf34d2.png)
