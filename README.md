@@ -13,6 +13,6 @@
 - AWS Rekognition
 - Python
 - Numpy
-- scikit learn
+- Scikit learn
 
 ## 아키텍쳐
