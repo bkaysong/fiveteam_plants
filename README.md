@@ -62,6 +62,7 @@ def rekognition(photo, bucket):
 
 - AWS의 S3에서 저장된 이미지를 로드
 - 최종으로 토마토이미지인지 파악 후 토마토 익음 분류.
+
 ```
 if __name__ == "__main__":
     photo = "tomato_18.jpg"
@@ -73,4 +74,4 @@ if __name__ == "__main__":
             print("안 익었다")
     else :
         print("토마토 없음")
-        ```
+```
