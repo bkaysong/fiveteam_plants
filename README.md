@@ -43,3 +43,34 @@ if ripe('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%
 else:
     print("안 익었다")
     ```
+
+- AWS의 Rekognition을 사용하여 토마토 이미지인지 판단
+```
+def rekognition(photo, bucket):
+    # Change bucket and photo to your S3 Bucket and image.
+    client = boto3.client('rekognition', region_name='ap-northeast-2')
+
+    response = client.detect_labels(Image={'S3Object': {'Bucket': bucket, 'Name': photo}},MaxLabels=10)
+
+
+    print('Detected labels for ' + photo)
+    print()
+    for label in response['Labels']:
+        if label['Name']=='Tomato' and label['Confidence'] > 70 :
+            return "tomato"
+```
+
+- AWS의 S3에서 저장된 이미지를 로드
+- 최종으로 토마토이미지인지 파악 후 토마토 익음 분류.
+```
+if __name__ == "__main__":
+    photo = "tomato_18.jpg"
+    bucket = "tftomato1"
+    if rekognition(photo, bucket) == "tomato" :
+        if ripe("https://"+bucket+".s3.ap-northeast-2.amazonaws.com/"+photo) == "good":
+            print("익었다")
+        else:
+            print("안 익었다")
+    else :
+        print("토마토 없음")
+        ```
